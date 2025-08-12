@@ -1,0 +1,187 @@
+body {
+  background: url('college-bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  overflow-x: hidden;
+  overflow-y: auto; /* ✅ enables vertical scrolling */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Sparkle layer */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(white 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: sparkle 2s infinite linear;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Sparkle animation */
+@keyframes sparkle {
+  0% {
+    background-position: 0 0;
+  }
+  50% {
+    background-position: 20px 20px;
+  }
+  100% {
+    background-position: 0 0;
+  }
+}
+
+
+.registration-box {
+  background: rgb(83 93 102);
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(36,89,200,0.11);
+  padding: 1.1rem 1.4rem;
+  max-width: 760px;
+  margin: 0 auto;
+  font-size: 0.99rem;
+  animation: fadeInUp 0.8s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+  margin-top: 2.2rem;
+}
+
+.animated-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.7rem;
+}
+
+.svg-animated-hand {
+  width: 54px;
+  height: 54px;
+  margin-right: 0.5rem;
+  animation: waveHand 2s infinite;
+  transform-origin: 70% 70%;
+}
+
+@keyframes waveHand {
+  0% { transform: rotate(0deg);}
+  10% { transform: rotate(14deg);}
+  20% { transform: rotate(-8deg);}
+  30% { transform: rotate(14deg);}
+  40% { transform: rotate(-4deg);}
+  50% { transform: rotate(10deg);}
+  60% { transform: rotate(0deg);}
+  100% { transform: rotate(0deg);}
+}
+
+.welcome-animated-title {
+  font-weight: 800;
+  color:#f8f9fa;
+  font-size: 1.34rem;
+  letter-spacing: 0.5px;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  animation: popInText 1.1s;
+  text-shadow: 0 2px 10px #fff7;
+}
+
+@keyframes popInText {
+  0% { opacity: 0; transform: scale(0.7);}
+  60% { opacity: 1; transform: scale(1.1);}
+  100% { opacity: 1; transform: scale(1);}
+}
+
+.form-title {
+  font-weight: 600;
+  color:var(--bs-gray-400);
+  font-size: 1.15rem;
+  margin-bottom: 1.1rem;
+  text-align: center;
+  letter-spacing: 0.3px;
+  font-style: italic;
+}
+
+.form-label {
+  font-weight: 500;
+  color: #f8f9fa;
+  font-size: 0.98rem;
+}
+
+.form-control,
+.form-select {
+  font-size: 0.98rem;
+  padding: 0.33rem 0.6rem;
+  background-color:var(--bs-gray-200);
+}
+
+.form-control:focus,
+.form-select:focus {
+  box-shadow: 0 0 0 2px #358efa;
+  border-color: #358efa;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #65696e, #2f363a);
+  border: none;
+  font-size: 1.06rem;
+  padding: 0.52rem 0;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(90deg, #7d838f, #99a1aa);
+}
+
+.form-check-label {
+  font-size: 0.97rem;
+}
+
+.login-link {
+  color: #0e0d12;
+  text-decoration: underline;
+  font-weight: 800;
+  font-style: italic;
+}
+.login-link:hover {
+  color: #358efa;
+  text-decoration: none;
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(30px);}
+  100% { opacity: 1; transform: translateY(0);}
+}
+
+@media (max-width: 767.98px) {
+  .registration-box {
+    padding: 1rem 0.5rem;
+    max-width: 98vw;
+    margin-top: 0.6rem;
+  }
+  .welcome-animated-title {
+    font-size: 1.02rem;
+  }
+}
+.form-check-label{
+  color: #fff;
+  font-size: 0.95rem;
+}
+@media (max-width: 575.98px) {
+  .form-title {
+    font-size: 1rem;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+    :root {
+        scroll-behavior: smooth;
+    }
+}
+

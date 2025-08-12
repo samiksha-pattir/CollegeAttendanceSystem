@@ -1,0 +1,114 @@
+body {
+  background: 
+    url('college-bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+}
+.dashboard-wrapper { min-height: 100vh; }
+.sidebar {
+  position: fixed;
+  top: 0; left: 0;
+  height: 100vh;
+  width: 250px;
+  z-index: 1040;
+  background: #343a40;
+  box-shadow: 2px 0 8px #18263e20;
+  transition: margin-left 0.3s;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 1rem;
+}
+.sidebar-profile {
+  text-align: center;
+  padding: 1.5rem 0 1rem 0;
+  border-bottom: 1px solid #2253a0;
+}
+.sidebar-profile img {
+  width: 74px;
+  height: 74px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid #2563eb;
+  margin-bottom: 0.5rem;
+  background: #fff;
+}
+.sidebar-profile .sidebar-name {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0;
+  background: #2563eb;
+  padding: 6px 18px;
+  border-radius: 8px;
+  display: inline-block;
+}
+.sidebar-profile .sidebar-email {
+  color: #b4d9fa;
+  font-size: 0.9rem;
+  word-break: break-all;
+}
+.sidebar .nav-link {
+  color: #e3f2fd;
+  font-size: 1rem;
+  padding: 12px 24px;
+  border-radius:.75rem;
+  transition: background 0.2s, color 0.2s;
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+}
+.sidebar .nav-link.active, .sidebar .nav-link:hover {
+  background:#445260;
+  color: #fff;
+}
+.sidebar .nav-link i {
+  width: 22px;
+  text-align: center;
+  margin-right: 10px;
+}
+.sidebar .nav-link.text-danger { color: #ff5a5a !important; }
+.main-content {
+  margin-left: 250px;
+  transition: margin-left 0.3s;
+  min-height: 100vh;
+  padding: 2rem 1rem 1rem 1rem;
+  /* background: #f2f2f2; */
+}
+@media (max-width: 991.98px) {
+  .sidebar { display: none !important; }
+  .main-content { margin-left: 0; }
+}
+.card {
+  border-radius: 14px;
+  background:#dee7ef;
+  /* box-shadow: 0 3px 10px #2563eb12; */
+  box-shadow: inset -2px -3px 12px 20px #ced8e1;
+}
+.profile-photo-edit {
+  position: relative;
+  display: inline-block;
+}
+.profile-photo-edit label {
+  cursor: pointer;
+  margin-bottom: 0;
+}
+.profile-photo-edit .edit-icon {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  background: #2563eb;
+  color: #fff;
+  padding: 3px 6px;
+  border-radius: 50%;
+  font-size: 14px;
+  border: 2px solid #fff;
+}
+.tab-content > .tab-pane:not(.active) { display: none; }
+.table thead th,
+.table thead td {
+  background: #f6faff !important;
+}
+.custom-file-input { display: none; }
+.alert-center { text-align: center; }

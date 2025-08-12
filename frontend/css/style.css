@@ -1,167 +1,331 @@
-/* General Styles */
-body {
-   scroll-behavior: smooth;
-   font-family: 'Arial', sans-serif;
+body, html {
+    min-height: 100vh;
+    font-family: 'Montserrat', 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+    overflow-x: hidden;
+    color: #6ef9ff !important;
 }
 
-.navbar {
-   background-color: #002147; /* Government-college blue */
+/* START: Background transition effect */
+body.bg-clg-img {
+    background:
+        linear-gradient(rgba(110,249,255,0.24), rgba(42,82,152,0.22)),
+        url("../images/nstiBackground.jpg") no-repeat center center fixed;
+    background-size: cover;
+    transition: background 1s ease;
 }
 
-.navbar a {
-   color: white !important;
-   font-weight: bold;
+body.bg-dark {
+    background:
+        linear-gradient(rgba(2,2,3,0.80), rgba(2,2,3,0.92));
+    background-color: #020203;
+    transition: background 1s ease;
+}
+/* END: Background transition effect */
+
+#particles-js {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0; left: 0;
+    z-index: 0;
+    pointer-events: none;
+    background: transparent;
 }
 
+.navbar.custom-navbar {
+    background: rgba(19, 34, 64, 0.97);
+    min-height: 66px;
+    border-bottom: 2px solid #6ef9ff;
+    box-shadow: 0 4px 16px rgba(50,60,95,0.13);
+    z-index: 10;
+}
+.logo-nav {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    background: #fff;
+    margin-left: 40px;
+}
+.navbar-brand {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #6ef9ff !important;
+    letter-spacing: 1px;
+    margin-left: 10px;
+    font-family: 'Montserrat', Arial, sans-serif;
+}
+.navbar-nav { gap: 0.3rem; }
+.nav-link {
+    color: #fff !important;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 7px 15px !important;
+    border-radius: 6px;
+    transition: background 0.18s, color 0.18s;
+}
+.nav-link.active,
+.nav-link:focus,
+.nav-link:hover {
+    background: #2e2f45;
+    color: #6ef9ff !important;
+    font-weight: 600;
+}
+.btn-login {
+    background: #fff;
+    color: #142850 !important;
+    border-radius: 24px !important;
+    font-size: 1rem !important;
+    font-weight: 700;
+    padding: 7px 22px !important;
+    border: none;
+    margin-left: 0.6rem;
+    box-shadow: 0 1px 5px rgba(0,0,0,0.06);
+    transition: background 0.18s, color 0.18s;
+}
+.btn-login:hover, .btn-login:focus {
+    background: #6ef9ff !important;
+    color: #020203 !important;
+}
+.dropdown-menu {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.13);
+}
+.dropdown-item:active {
+    background-color: #6ef9ff;
+    color: #fff !important;
+}
+
+/* HERO SECTION */
 .hero {
-   background: url('college-image.jpg') no-repeat center center/cover;
-   height: 100vh;
-   position: relative;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: center;
-   text-align: center;
-   color: white;
+    background: transparent;
+    min-height: 70vh;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
 }
-
-.hero::before {
-   content: "";
-   position: absolute;
-   top: 0;
-   left: 0;
-   width: 100%;
-   height: 100%;
-   background: rgba(0, 33, 71, 0.85);
-   z-index: 1;
-}
-
 .hero-content {
-   position: relative;
-   z-index: 2;
+    position: relative;
+    z-index: 2;
+    padding-top: 110px;
+    padding-bottom: 60px;
 }
-
 .hero h1 {
-   font-size: 3.5rem;
-   font-weight: bold;
-   animation: bounceInDown 1.5s;
+    font-size: 2.7rem;
+    font-weight: bold;
+    background: linear-gradient(90deg, #6ef9ff 10%, #2a5298 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
-
 .hero p {
-   font-size: 1.6rem;
-   animation: fadeIn 2s;
+    font-size: 1.3rem;
+    color: #fff;
 }
 
-.hero .btn {
-   margin-top: 20px;
-   padding: 12px 25px;
-   font-size: 1.2rem;
-   animation: fadeInUp 2.5s;
+/* GLASSMORPHISM CARD EFFECT */
+.glassmorphism {
+    background: rgba(255,255,255,0.14);
+    backdrop-filter: blur(10px) saturate(160%);
+    box-shadow: 0 4px 18px rgba(60,100,150,0.17);
+    border-radius: 18px;
+    border: 1.5px solid rgba(110,249,255,0.18);
 }
 
+/* --- CARD & TEXT CONTRAST FIX --- */
+.feature-card,
+.person-card,
+.about-project-card,
+.courses-section,
+.contact-form,
+.glassmorphism {
+    color: #181a1b !important; /* dark, high-contrast text */
+}
+.feature-card .icon,
+.person-card .icon {
+    color: #6ef9ff;
+}
+.feature-card h4,
+.person-card h6,
+.about-project-card h4,
+.courses-section h2,
+.features h2,
+.about-us h2,
+.people-section h2,
+.contact-section h2 {
+    color: #2a5298;
+}
+.feature-card p,
+.person-card small,
+.about-project-card p,
+.courses-section p,
+.contact-info,
+.contact-section p {
+    color: #fff;
+    font-weight: bold;
+}
+a {
+    color: #178ca4;
+}
+a:hover {
+    color: #6ef9ff;
+}
+.text-muted { color: #fff !important;font-weight: lighter;font-style: italic; }
+
+/* --- SECTIONS --- */
+.courses-section,
+.about-us,
+.people-section,
+.contact-section {
+    background: transparent;
+}
+.courses-section h2 {
+    color: #6ef9ff;
+    font-weight: bold;
+}
 .features {
-   background: #f8f9fa;
-   padding: 60px 20px;
+    background: transparent;
+    padding: 60px 20px;
+    text-align: center;
+    z-index: 2;
 }
-
+.features h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: #6ef9ff;
+}
+.feature-card {
+    border-radius: 18px;
+    padding: 28px;
+    background: rgba(255,255,255,0.21);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.11);
+    border: 2px solid #6ef9ff;
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+    position: relative;
+    overflow: hidden;
+}
 .feature-card:hover {
-   transform: scale(1.05);
-   transition: all 0.3s ease-in-out;
-   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-   background-color: #e3f2fd;
+    transform: translateY(-10px) scale(1.04);
+    box-shadow: 0 8px 22px rgba(110, 249, 255, 0.21);
+    border-color: #2a5298;
+    background: rgba(110,249,255,0.13);
 }
 
-.features .icon {
-   font-size: 2.5rem;
-   color: #002147;
+/* TEAM & TEACHERS SECTION */
+.person-card {
+    background: rgba(255,255,255,0.21);
+    border: 2px solid #6ef9ff;
+    border-radius: 16px;
+    width: 210px;
+    min-height: 230px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0 auto;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+    transition: transform 0.3s, box-shadow 0.3s, border-color 0.2s;
+    padding: 18px 10px 12px 10px;
+}
+.person-card:hover {
+    transform: scale(1.07) rotate(-2deg);
+    box-shadow: 0 8px 24px rgba(110, 249, 255, 0.19);
+    border-color: #2a5298;
+    background: rgba(110,249,255,0.13);
+}
+.person-img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2.5px solid #2a5298;
+    margin-bottom: 12px;
+    background: #fff;
+}
+.person-card h6 {
+    font-size: 1.04rem;
+    margin-bottom: 2px;
+}
+.person-card small {
+    font-size: 0.93rem;
+    line-height: 1.3;
 }
 
-.about-us {
-   background-color: #f8f9fa;
-   padding: 60px 20px;
+/* CONTACT US SECTION */
+.contact-info .info-item { color: #24292f; }
+.contact-info h5 {
+    margin: 0;
+    font-size: 1.05rem;
+    font-weight: bold;
+    color: #2a5298;
+}
+.contact-info p, .contact-info a {
+    font-size: 0.97rem;
+    margin-top: 5px;
+    color: #178ca4;
+}
+.contact-info a:hover {
+    color: #6ef9ff;
+    text-decoration: underline;
+}
+.contact-form {
+    border-radius: 14px;
+    background: rgb(18 33 62) !important;
+    box-shadow: 0 2px 10px rgba(60,100,150,0.09);
+    color: #181a1b !important;
+}
+.contact-form label {
+    font-weight: bold;
+    color: #2a5298;
+}
+.contact-form .form-control {
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    background: #f8f9fa;
+    color: #181a1b;
+}
+.contact-form .btn-primary {
+    background: linear-gradient(90deg,#6ef9ff,#2a5298);
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    transition: background 0.3s, color 0.3s;
+}
+.contact-form .btn-primary:hover, .contact-form .btn-primary:focus {
+    background: linear-gradient(90deg,#2a5298,#6ef9ff);
+    color: #fff;
 }
 
-.about-us h2 {
-   text-align: center;
-   color: #002147;
-   font-weight: bold;
+/* FOOTER */
+.footer {
+    background: rgba(19, 34, 64, 0.82);
+    color: white;
+    text-align: center;
+    padding: 18px 0 8px 0;
+    font-size: 1rem;
+    border-top: 1.5px solid #6ef9ff;
+    box-shadow: 0 -2px 12px rgba(60,100,150,0.13);
+    z-index: 2;
 }
 
-.about-card {
-   background: white;
-   border: none;
-   border-radius: 8px;
-   text-align: center;
-   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+/* RESPONSIVE TWEAKS */
+@media (max-width:991px) {
+    .logo-nav { width: 32px; height: 32px; }
+    .person-card { width: 160px; min-height: 160px; }
+    .person-img { width: 64px; height: 64px; }
+    .navbar-brand { font-size: 1.07rem;}
 }
-
-.about-card:hover {
-   transform: translateY(-10px);
-   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-.circle-icon {
-   width: 100px;
-   height: 100px;
-   background-color: #002147;
-   color: white;
-   line-height: 100px;
-   font-size: 2rem;
-   border-radius: 50%;
-   margin: 0 auto 20px;
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-   transition: transform 0.3s ease-in-out;
-}
-
-.circle-icon:hover {
-   transform: scale(1.1);
-   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-/* Contact Us Section */
-#contact {
-   background-color: #f8f9fa;
-   padding: 60px 20px;
-}
-
-#contact h2 {
-   color: #002147;
-   font-weight: bold;
-   margin-bottom: 20px;
-}
-
-#contact p {
-   color: #6c757d;
-}
-
-#contact .list-group-item {
-   font-size: 1.1rem;
-   border: none;
-   background: #ffffff;
-   margin-bottom: 10px;
-   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-   display: flex;
-   align-items: center;
-}
-
-#contact .list-group-item:hover {
-   transform: translateY(-5px);
-   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-}
-
-#contact a {
-   color: #002147;
-   text-decoration: none;
-}
-
-#contact a:hover {
-   text-decoration: underline;
-}
-
-footer {
-   background: #002147;
-   color: white;
-   text-align: center;
-   padding: 20px 0;
+@media (max-width:575px) {
+    .person-card { width: 110px; min-height: 120px; }
+    .person-img { width: 44px; height: 44px; }
+    .hero h1 { font-size: 1.3rem;}
+    .logo-nav { width: 20px; height: 20px; }
+    .navbar-brand { font-size: 0.97rem;}
 }
